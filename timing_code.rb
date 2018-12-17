@@ -4,9 +4,10 @@ rangemin = 0
 RANGEMAX = 100000
 while rangemin != RANGEMAX
   rangemin = rangemin + increment
+  results = []
   counter = 1
-  puts "next array #{rangemin}"
-  while counter <= 5
+
+  while counter <= 15
     start = Time.now
     arr = []
     range = (1..rangemin)
@@ -17,6 +18,10 @@ while rangemin != RANGEMAX
   finish = Time.now
   result = finish - start
   counter += 1
-  puts result
+  results << result
   end
+
+avg = results.sum / results.length
+median = results.sort[6]
+puts "#{rangemin}\t#{avg}\t#{median}"
 end
